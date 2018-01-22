@@ -54,9 +54,11 @@ RUN set -ex \
     && pip install pytz \
     && pip install pyOpenSSL \
     && pip install ndg-httpsclient \
-    && pip install pyasn1 \
-    && pip install apache-airflow[crypto,celery,postgres,hive,jdbc]==$AIRFLOW_VERSION \
-    && pip install celery[redis]==3.1.17 \
+    && pip install pyasn1
+
+RUN pip install git+https://github.com/ianburrell/airflow.git@airflow-1614#egg=apache-airflow[crypto,celery,postgres,hive,jdbc]
+
+RUN pip install celery[redis]==3.1.17 \
     && apt-get purge --auto-remove -yqq $buildDeps \
     && apt-get clean \
     && rm -rf \
