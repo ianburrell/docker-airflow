@@ -33,6 +33,7 @@ RUN set -ex \
         libblas-dev \
         liblapack-dev \
         libpq-dev \
+        libyaml-dev \
         git \
     ' \
     && apt-get update -yqq \
@@ -41,6 +42,7 @@ RUN set -ex \
         $buildDeps \
         python3-pip \
         python3-requests \
+        libyaml-0-2 \
         apt-utils \
         curl \
         rsync \
